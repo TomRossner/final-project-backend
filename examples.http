@@ -1,0 +1,70 @@
+@local = http://localhost:3005
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2YzOTc5MDY3ODgwMWQ4NTI3ODEwMzYiLCJlbWFpbCI6InRvbW1tMkBnbWFpbC5jb20iLCJpc0JpeiI6ZmFsc2UsImlhdCI6MTY3NjkwODQ3OX0._G-Tz5gEm799hRAHDRE_diDIcLZmmBJN68umvp8THtc
+
+###
+GET {{local}}/cards
+Content-Type: application/json
+
+###
+GET {{local}}/cards/63d808abfcd9510f37c99e14
+Content-Type: application/json
+
+###
+POST {{local}}/cards/new
+Content-Type: application/json
+x-auth-token: {{token}}
+
+{
+    "bizName": "Tom's Biz",
+    "bizAddress": "Toms other biz address",
+    "bizPhone": "0584844787",
+    "bizDescription": "some desc of other biz"
+}
+
+###
+POST {{local}}/auth/register
+Content-Type: application/json
+
+{
+    "name": "tommm",
+    "email": "tommm2@gmail.com",
+    "password": "tom123",
+    "isBiz": false
+}
+
+###
+POST {{local}}/auth/login
+Content-Type: application/json
+
+{
+    "email": "tommm2@gmail.com",
+    "password": "tom123"
+}
+
+###
+PUT {{local}}/cards/63d808abfcd9510f37c99e14
+Content-Type: application/json
+
+{
+    "bizName": "Tom's Updated Biz",
+    "bizAddress": "Toms other biz address updated",
+    "bizPhone": "05848447879",
+    "bizDescription": "some desc of other biz updated",
+    "bizImage": "someimageurl for other biz updated"
+}
+
+###
+DELETE {{local}}/cards/delete/63f3aa9a652f4f576f3a9e18
+Content-Type: application/json
+x-auth-token: {{token}}
+
+
+###
+
+PUT {{local}}/users/update/63f39790678801d852781036
+Content-Type: application/json
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2YzOTc5MDY3ODgwMWQ4NTI3ODEwMzYiLCJlbWFpbCI6InRvbW1tMkBnbWFpbC5jb20iLCJpc0JpeiI6ZmFsc2UsImlhdCI6MTY3NjkwODQ3OX0._G-Tz5gEm799hRAHDRE_diDIcLZmmBJN68umvp8THtc
+
+{
+    "isBiz": true
+}
